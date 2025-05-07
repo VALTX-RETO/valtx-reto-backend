@@ -56,35 +56,35 @@ npm run start:dev
 
 
 ## APIS DISPONIBLES
-## 📚 Endpoints y URLs
+## Endpoints y URLs
 ```bash 
-- **Registrar usuario**  
+- *Registrar usuario*  
   `POST http://localhost:3000/api/auth/register`
 
-- **Login**  
+- *Login*
   `POST http://localhost:3000/api/auth/login`
 
-- **Listar productos**  
+- *Listar productos* 
   `GET http://localhost:3000/api/products`
 
-- **Obtener producto por ID**  
+- *Obtener producto por ID*
   `GET http://localhost:3000/api/products/{id}`
 
-- **Crear producto**  
+- *Crear producto*
   `POST http://localhost:3000/api/products`
 
-- **Actualizar producto**  
+- *Actualizar producto*
   `PUT http://localhost:3000/api/products/{id}`
 
-- **Eliminar producto**  
+- *Eliminar producto*
   `DELETE http://localhost:3000/api/products/{id}`
 
-- **Subir imagen**  
+- *Subir imagen*
   `POST http://localhost:3000/api/products/{id}/images`
 
-- **Listar imágenes**  
+- *Listar imágenes*
   `GET http://localhost:3000/api/products/{id}/images`
 
-- **Swagger UI**  
+- *Swagger UI*
   `GET http://localhost:3000/api`
 ```
