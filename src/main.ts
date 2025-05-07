@@ -17,7 +17,8 @@ async function bootstrap() {
     
     app.setGlobalPrefix('api');
 
-    app.use(helmet());
+    app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+    
     app.use(rateLimit({ windowMs: 60_000, max: 100 }));
 
     app.useGlobalPipes(
@@ -27,7 +28,10 @@ async function bootstrap() {
         })
     );
 
-    app.enableCors();
+    app.enableCors({
+        origin: 'http://localhost:4200',
+        credentials: true,
+    });
 
      // --- SWAGGER SETUP ---
     const config = new DocumentBuilder()
