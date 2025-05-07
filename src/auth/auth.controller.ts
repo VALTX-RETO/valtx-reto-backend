@@ -9,8 +9,6 @@ import { AuthGuard } from '@nestjs/passport';
 export class AuthController {
     constructor(private readonly authService: AuthService) {}
 
-    @UseGuards(AuthGuard('jwt'))
-    @ApiBearerAuth('JWT-auth')
     @Post('register')
     async register(@Body() dto: RegisterUserDto) {
         return this.authService.registerUser(dto);

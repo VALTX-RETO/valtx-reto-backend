@@ -17,8 +17,9 @@ export class ProductsController {
     @Get()
     @UseGuards(AuthGuard('jwt'))
     @ApiBearerAuth('JWT-auth')
-    findAll() {
-        return this.productsService.findAll();
+    findAll(@Req() req) {
+        const userId = (req.user as any).sIdUser;
+        return this.productsService.findAll(userId);
     }
 
     @Get(':id')
