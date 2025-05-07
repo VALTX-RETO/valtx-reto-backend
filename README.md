@@ -29,7 +29,7 @@ cd valtx-reto-backend
 npm install
 ```
 
-### 2. Crea .env en base al .env.template
+### 2. Crea .env en base al .env.template y reemplaza tus credenciales
 ```bash 
 PORT=3000
 
