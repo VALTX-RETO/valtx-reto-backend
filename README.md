@@ -60,6 +60,7 @@ npm run start:dev
 ```bash 
 - *Registrar usuario*  
   `POST http://localhost:3000/api/auth/register`
+  * Crear una contraseña fuerte, por ejemplo: Boris@2025
 
 - *Login*
   `POST http://localhost:3000/api/auth/login`
