@@ -5,6 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Product } from './entities/product.entity';
 import { Repository } from 'typeorm';
 import { ProductImage } from './entities/product-image.entity';
+import { envs } from 'src/config';
 
 @Injectable()
 export class ProductsService {
@@ -27,6 +28,16 @@ export class ProductsService {
     findAll(): Promise<Product[]> {
         return this.repo.find({
             relations: ['images', 'user'],
+            select: {
+                sIdProduct: true,
+                sNombre:     true,
+                sCategoria:  true,
+                images: true,
+                user: {
+                  sIdUser:     true,
+                  sEmail:      true,
+                },
+            },
         });
     }
 
@@ -67,7 +78,7 @@ export class ProductsService {
     async addImage(sIdProduct: string, file: Express.Multer.File) {
         const product = await this.findOne(sIdProduct);
 
-        const url = `/uploads/${ file.filename }`;
+        const url = `${ envs.server }/uploads/${ file.filename }`;
 
         const image = this.imageRepo.create({
             sUrl: url,              // aquí no puede ser null

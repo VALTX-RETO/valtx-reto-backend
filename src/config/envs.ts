@@ -11,6 +11,7 @@ const schema = joi.object({
   DB_NAME       : joi.string().required(),
   DB_TRUST_CERT : joi.boolean().default(true),
   JWT_SECRET    : joi.string().required(),
+  SERVER        : joi.string().required(),
 })
 .unknown()
 .prefs({ convert: true });
@@ -29,4 +30,5 @@ export const envs = {
     trustCert   : value.DB_TRUST_CERT,
   },
   jwtSecret     : value.JWT_SECRET,
+  server        : value.SERVER
 };
