@@ -27,7 +27,11 @@ export class ProductsService {
 
     findAll(sIdUser: string): Promise<Product[]> {
         return this.repo.find({
-            where: { sIdUser },
+            where: { 
+                user: {
+                    sIdUser
+                }
+            },
             relations: ['images', 'user'],
             select: {
                 sIdProduct: true,
